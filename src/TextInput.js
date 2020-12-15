@@ -33,13 +33,13 @@ function mapDispatchToProps(dispatch) {
         inputSubmitted:(e) => {
             e.preventDefault();
             console.log('submitted', e.target[0].value);
-            const action = {type: 'INPUT_SUBMIT', messages: { id : uuidv4(), text : e.target[0].value}};
-            dispatch(action);
-            function action2(id) {
-                return ({ type: 'INPUT_REMOVED', messages: { id: action.messages.id } });
+            const submitAction = {type: 'INPUT_SUBMIT', messages: { id : uuidv4(), text : e.target[0].value}};
+            dispatch(submitAction);
+            function deleteMessage(id) {
+                return ({ type: 'INPUT_REMOVED', messages: { id: submitAction.messages.id } });
             }
             setTimeout(function(){
-                dispatch(action2(action.messages.id))
+                dispatch(deleteMessage(submitAction.messages.id))
             },5000)
         }
     }
