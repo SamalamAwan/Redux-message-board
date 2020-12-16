@@ -17,9 +17,6 @@ const reducer = (state = initialState, action) => {
             let obj = state.messages.concat(action.messages)
             return  Object.assign({}, state, { messages: obj, inputValue: ''});
         case 'INPUT_REMOVED':
-            /*console.log(state.messages.filter(function(text) { 
-                return text !== action.messages.text;
-            }))*/
             return Object.assign({}, state, { messages: state.messages.filter(messages => messages.id !== action.messages.id)});
         default:
             return state;
