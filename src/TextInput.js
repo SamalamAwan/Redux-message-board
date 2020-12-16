@@ -40,7 +40,7 @@ function mapDispatchToProps(dispatch) {
                     }
                     setTimeout(function(){
                         dispatch(deleteMessage(submitAction.messages.id))
-                    },50000)
+                    },5000)
             }
             else{
                 alert("You must enter some text.")
